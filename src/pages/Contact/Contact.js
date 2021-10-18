@@ -1,0 +1,63 @@
+import React from "react";
+import { Container } from "react-bootstrap";
+
+const Contact = () => {
+  return (
+    <Container>
+      <div className="row g-2 my-5">
+        <div className="col-md-4">
+          <p className="mb-0">Contact Info.</p>
+          <h3>Connect With Us</h3>
+          <hr className="border-bottom border-4 border-primary w-50" />
+          <p className="fw-bold">Information</p>
+          <p>
+            <i className="fas fa-phone-alt"></i> (+064)-342-68382
+          </p>
+          <p>
+            <i className="fas fa-mobile-alt"></i> (+880)-184-55600
+          </p>
+          <p>
+            <i className="far fa-envelope"></i>{" "}
+            <a href="hasibulhasan294@gmail.com">hasibulhasan@gmail.com</a>
+          </p>
+        </div>
+        <div className="col-md-8">
+          <p className="mb-0">Drop Us A Line</p>
+          <h3>We’d Love To Hear From You</h3>
+          <hr className="border-bottom border-4 border-primary w-50 mb-4" />
+          <form className="row g-3 bg-secondary bg-opacity-50 rounded pb-3">
+            <div className="col-md-6">
+              <label htmlFor="inputEmail4" className="form-label">
+                Name
+              </label>
+              <input type="name" className="form-control" id="inputEmail4" />
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="inputPassword4" className="form-label">
+                Email
+              </label>
+              <input
+                type="email"
+                className="form-control"
+                id="inputPassword4"
+              />
+            </div>
+            <div className="col-12">
+              <label htmlFor="inputAddress" className="form-label">
+                Subject
+              </label>
+              <input type="text" className="form-control" id="inputAddress" />
+            </div>
+            <div className="col-12">
+              <button type="submit" className="btn btn-primary">
+                Send Us
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </Container>
+  );
+};
+
+export default Contact;

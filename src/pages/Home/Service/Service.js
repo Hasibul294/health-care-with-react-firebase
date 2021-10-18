@@ -16,8 +16,11 @@ const Service = ({ service }) => {
         <Card.Body>
           <Card.Title className="fw-bold text-center">{title}</Card.Title>
           <Card.Text className="text-center">{keyPoint}</Card.Text>
-          <button onClick={handleDetails} className="d-block btn btn-primary">
-            Booking
+          <button
+            onClick={handleDetails}
+            className="btn btn-primary d-block mx-auto"
+          >
+            Details
           </button>
         </Card.Body>
       </Card>
