@@ -25,6 +25,7 @@ const useFirebase = () => {
   const googleProvider = new GoogleAuthProvider();
 
   const handleName = (e) => {
+    console.log(e.target.value);
     setName(e.target.value);
   };
 
@@ -35,9 +36,8 @@ const useFirebase = () => {
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
-  const setUserName = () => {
-    updateProfile(auth.currentUser, { displayName: name }).then((result) => {});
-  };
+  console.log(name);
+
   const handleLogin = (e) => {
     e.preventDefault();
     if (!/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/.test(password)) {
@@ -50,7 +50,7 @@ const useFirebase = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        setUser(user);
         setError("");
       })
       .catch((error) => {
@@ -70,12 +70,17 @@ const useFirebase = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        setUser(user);
         setError("");
+        setUserName();
       })
       .catch((error) => {
         setError(error.message);
       });
+  };
+
+  const setUserName = () => {
+    updateProfile(auth.currentUser, { displayName: name }).then((result) => {});
   };
 
   const signInUsingGoogle = () => {
