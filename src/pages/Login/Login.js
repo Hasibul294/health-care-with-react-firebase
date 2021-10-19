@@ -55,6 +55,7 @@ const Login = () => {
           onClick={signInUsingGoogle}
           className="btn-primary px-4 py-1 mx-5 border-0 rounded-pill"
         >
+          <i class="fab fa-google bg-warning p-2 rounded-circle me-3 border-0"></i>
           Google SignIn
         </button>
       </div>

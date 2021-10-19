@@ -10,6 +10,8 @@ import Footer from "./pages/Shared/Footer";
 import Services from "./pages/Home/Services/Services";
 import ServiceDetails from "./pages/Home/ServiceDetails/ServiceDetails";
 import Contact from "./pages/Contact/Contact";
+import PrivateRoute from "./pages/PrivateRoute/PrivateRoute";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -21,23 +23,26 @@ function App() {
             <Route exact path="/">
               <Home></Home>
             </Route>
-            <Route path="/home">
+            <Route exact path="/home">
               <Home></Home>
             </Route>
-            <Route path="/services">
+            <Route exact path="/services">
               <Services></Services>
             </Route>
-            <Route path="/details/:id">
+            <PrivateRoute exact path="/details/:id">
               <ServiceDetails></ServiceDetails>
-            </Route>
-            <Route path="/contact">
+            </PrivateRoute>
+            <Route exact path="/contact">
               <Contact></Contact>
             </Route>
-            <Route path="/login">
+            <Route exact path="/login">
               <Login></Login>
             </Route>
-            <Route path="/register">
+            <Route exact path="/register">
               <Register></Register>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
           <Footer></Footer>

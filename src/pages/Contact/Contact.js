@@ -30,13 +30,19 @@ const Contact = () => {
               <label htmlFor="inputEmail4" className="form-label">
                 Name
               </label>
-              <input type="name" className="form-control" id="inputEmail4" />
+              <input
+                required
+                type="name"
+                className="form-control"
+                id="inputEmail4"
+              />
             </div>
             <div className="col-md-6">
               <label htmlFor="inputPassword4" className="form-label">
                 Email
               </label>
               <input
+                required
                 type="email"
                 className="form-control"
                 id="inputPassword4"
@@ -46,7 +52,23 @@ const Contact = () => {
               <label htmlFor="inputAddress" className="form-label">
                 Subject
               </label>
-              <input type="text" className="form-control" id="inputAddress" />
+              <input
+                required
+                type="text"
+                className="form-control"
+                id="inputAddress"
+              />
+            </div>
+            <div className="col-12">
+              <label for="exampleFormControlTextarea1" className="form-label">
+                Example textarea
+              </label>
+              <textarea
+                required
+                className="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+              ></textarea>
             </div>
             <div className="col-12">
               <button type="submit" className="btn btn-primary">

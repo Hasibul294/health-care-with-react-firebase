@@ -1,10 +1,11 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 
 const Footer = () => {
   return (
     <>
       <div className="bg-dark mt-5 p-3 text-white">
-        <div className="p-5 d-flex justify-content-around">
+        <div className="py-5 d-lg-flex justify-content-around">
           <div>
             <h3>
               <span className="text-primary">H.</span>Hospital
@@ -24,6 +25,12 @@ const Footer = () => {
             <p>Hospital Near Me</p>
           </div>
         </div>
+        <p className="d-lg-flex justify-content-center">
+          <i class="fab fa-google me-3 me-lg-5"></i>
+          <i class="fab fa-facebook me-3 me-lg-5"></i>
+          <i class="fab fa-twitter me-3 me-lg-5"></i>
+          <i class="fab fa-instagram-square me-3 me-lg-5"></i>
+        </p>
       </div>
       <p className="mb-0 p-3 text-center text-white bg-primary">
         Copyright<i className="far fa-copyright"></i> 2025 Humanity Hospital.
