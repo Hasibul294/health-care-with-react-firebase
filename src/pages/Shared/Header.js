@@ -27,13 +27,19 @@ const Header = () => {
               <Nav.Link as={NavLink} to="/services">
                 Services
               </Nav.Link>
+              <Nav.Link as={NavLink} to="/doctors">
+                Doctors
+              </Nav.Link>
               <Nav.Link as={NavLink} to="/contact">
                 Contact
               </Nav.Link>
             </Nav>
             {user?.email && (
               <Navbar.Text>
-                Hello: <a href="#login">{user?.displayName}</a>
+                Hello:{" "}
+                <span className="fw-bold text-white me-2">
+                  {user?.displayName}
+                </span>
               </Navbar.Text>
             )}
             {user?.email ? (

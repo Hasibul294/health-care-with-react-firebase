@@ -12,6 +12,7 @@ import ServiceDetails from "./pages/Home/ServiceDetails/ServiceDetails";
 import Contact from "./pages/Contact/Contact";
 import PrivateRoute from "./pages/PrivateRoute/PrivateRoute";
 import NotFound from "./pages/NotFound/NotFound";
+import Doctors from "./pages/Doctors/Doctors";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
             <PrivateRoute exact path="/details/:id">
               <ServiceDetails></ServiceDetails>
             </PrivateRoute>
+            <Route exact path="/doctors">
+              <Doctors></Doctors>
+            </Route>
             <Route exact path="/contact">
               <Contact></Contact>
             </Route>

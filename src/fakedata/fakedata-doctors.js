@@ -12,7 +12,7 @@ const doctors = [
     name: "Dr. Myles. B. Abbott",
     title: "Medicine Specialist",
     description:
-      "Dr. Myles is also one of the best-known doctors of Pediatricians in the world. He graduated from the University of Miami Leonard M Miller School of Medicine in 1972. He treats the problems of growth and child development.",
+      "Dr. Myles is also one of the best-known doctors of Pediatricians in the world. He graduated from the University of Miami Leonard M Miller School of Medicine in 1972. He treats the problems of growth and child development. He is the best doctor in this scenario",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX19e_dpYpiQr3LoZ5m9cZixd8Sh-UOQPoVyDIfCLb5CIHQsB5fQi8iMPWGf9Kb5_ncl0&usqp=CAU",
   },
   {
