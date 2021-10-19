@@ -29,12 +29,16 @@ const ServiceDetails = () => {
           <h6>Rating: {serviceDetails?.rating}</h6>
           <h3>Price: {serviceDetails?.cost}</h3>
           <NavLink to="/login">
-            <button className="btn btn-primary w-25 text-white border-0 rounded-pill mt-2">
+            <button className="btn btn-primary text-white border-0 rounded-pill mt-2">
               <i className="fas fa-shopping-cart"></i> Booking
             </button>
           </NavLink>
         </div>
-        <img style={{ width: "50%" }} src={serviceDetails?.img} alt="" />
+        <img
+          style={{ width: "50%", marginTop: "20px" }}
+          src={serviceDetails?.img}
+          alt=""
+        />
       </div>
     </>
   );

@@ -25,7 +25,7 @@ const Footer = () => {
             <p>Hospital Near Me</p>
           </div>
         </div>
-        <p className="d-lg-flex justify-content-center">
+        <p className="d-md-flex justify-content-center">
           <i class="fab fa-google me-3 me-lg-5"></i>
           <i class="fab fa-facebook me-3 me-lg-5"></i>
           <i class="fab fa-twitter me-3 me-lg-5"></i>
