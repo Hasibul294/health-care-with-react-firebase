@@ -1,27 +1,74 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
+  const {
+    error,
+    signInUsingGoogle,
+    setIsLoading,
+    handleName,
+    handleEmail,
+    handlePassword,
+    handleRegister,
+  } = useAuth();
+
+  const location = useLocation();
+  const history = useHistory();
+  const redirect_url = location.state?.from || "/home";
+
+  const handleGoogleLogin = () => {
+    signInUsingGoogle()
+      .then((result) => {
+        history.push(redirect_url);
+      })
+      .catch((error) => {
+        console.log("Error", error);
+      })
+      .finally(() => setIsLoading(false));
+  };
   return (
     <div>
-      <div className="w-75 mx-auto my-5">
-        <h2 className="text-center mb-5">Please Register</h2>
-        <form className="row g-3">
+      <div className="w-75 mx-auto my-4">
+        <h2 className="text-center mb-3">Please Register</h2>
+        <form onSubmit={handleRegister} className="row g-3">
+          <div className="col-12">
+            <label htmlFor="inputAddress2" className="form-label">
+              Name
+            </label>
+            <input
+              onBlur={handleName}
+              type="text"
+              className="form-control"
+              id="inputAddress2"
+              placeholder="Enter Your Name"
+              required
+            />
+          </div>
           <div className="col-md-6">
             <label htmlFor="inputEmail4" className="form-label">
               Email
             </label>
-            <input type="email" className="form-control" id="inputEmail4" />
+            <input
+              onBlur={handleEmail}
+              type="email"
+              className="form-control"
+              id="inputEmail4"
+              required
+            />
           </div>
           <div className="col-md-6">
             <label htmlFor="inputPassword4" className="form-label">
               Password
             </label>
             <input
+              onBlur={handlePassword}
               type="password"
               className="form-control"
               id="inputPassword4"
+              required
             />
+            <div className="mb-3 text-danger">{error}</div>
           </div>
           <div className="col-12">
             <label htmlFor="inputAddress" className="form-label">
@@ -32,17 +79,6 @@ const Register = () => {
               className="form-control"
               id="inputAddress"
               placeholder="1234 Main St"
-            />
-          </div>
-          <div className="col-12">
-            <label htmlFor="inputAddress2" className="form-label">
-              Address 2
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="inputAddress2"
-              placeholder="Apartment, studio, or floor"
             />
           </div>
           <div className="col-md-6">
@@ -76,7 +112,11 @@ const Register = () => {
           Already Have an Account?<Link to="/login">Login</Link>
         </p>
         <hr />
-        <button className="btn-primary px-4 py-1 w-50 mx-auto border-0 rounded-pill">
+        <button
+          onClick={handleGoogleLogin}
+          className="btn btn-primary py-1 border-0 rounded-pill"
+        >
+          <i className="fab fa-google bg-warning p-2 rounded-circle me-3 border-0"></i>
           Google SignIn
         </button>
       </div>

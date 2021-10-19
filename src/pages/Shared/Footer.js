@@ -26,10 +26,10 @@ const Footer = () => {
           </div>
         </div>
         <p className="d-md-flex justify-content-center">
-          <i class="fab fa-google me-3 me-lg-5"></i>
-          <i class="fab fa-facebook me-3 me-lg-5"></i>
-          <i class="fab fa-twitter me-3 me-lg-5"></i>
-          <i class="fab fa-instagram-square me-3 me-lg-5"></i>
+          <i className="fab fa-google me-3 me-lg-5"></i>
+          <i className="fab fa-facebook me-3 me-lg-5"></i>
+          <i className="fab fa-twitter me-3 me-lg-5"></i>
+          <i className="fab fa-instagram-square me-3 me-lg-5"></i>
         </p>
       </div>
       <p className="mb-0 p-3 text-center text-white bg-primary">

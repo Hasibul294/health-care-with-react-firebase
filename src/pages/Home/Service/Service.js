@@ -21,7 +21,7 @@ const Service = ({ service }) => {
             className="btn btn-primary d-block mx-auto"
           >
             Details
-            <i class="fas fa-info-circle ms-2 p-1"></i>
+            <i className="fas fa-info-circle ms-2 p-1"></i>
           </button>
         </Card.Body>
       </Card>
