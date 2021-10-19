@@ -33,6 +33,9 @@ const Header = () => {
               <Nav.Link as={NavLink} to="/contact">
                 Contact
               </Nav.Link>
+              <Nav.Link as={NavLink} to="/news">
+                News
+              </Nav.Link>
             </Nav>
             {user?.email && (
               <Navbar.Text>

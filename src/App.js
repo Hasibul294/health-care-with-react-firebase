@@ -13,6 +13,7 @@ import Contact from "./pages/Contact/Contact";
 import PrivateRoute from "./pages/PrivateRoute/PrivateRoute";
 import NotFound from "./pages/NotFound/NotFound";
 import Doctors from "./pages/Doctors/Doctors";
+import News from "./pages/News/News";
 
 function App() {
   return (
@@ -38,6 +39,9 @@ function App() {
             </Route>
             <Route exact path="/contact">
               <Contact></Contact>
+            </Route>
+            <Route exact path="/news">
+              <News></News>
             </Route>
             <Route exact path="/login">
               <Login></Login>
