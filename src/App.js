@@ -14,6 +14,7 @@ import PrivateRoute from "./pages/PrivateRoute/PrivateRoute";
 import NotFound from "./pages/NotFound/NotFound";
 import Doctors from "./pages/Doctors/Doctors";
 import News from "./pages/News/News";
+import Cart from "./pages/Cart/Cart";
 
 function App() {
   return (
@@ -48,6 +49,9 @@ function App() {
             </Route>
             <Route exact path="/register">
               <Register></Register>
+            </Route>
+            <Route exact path="/cart">
+              <Cart></Cart>
             </Route>
             <Route path="*">
               <NotFound></NotFound>

@@ -28,7 +28,7 @@ const ServiceDetails = () => {
           </p>
           <h6>Rating: {serviceDetails?.rating}</h6>
           <h3>Price: {serviceDetails?.cost}</h3>
-          <NavLink to="/login">
+          <NavLink to="/cart">
             <button className="btn btn-primary text-white border-0 rounded-pill mt-2">
               <i className="fas fa-shopping-cart"></i> Booking
             </button>
