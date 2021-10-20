@@ -4,7 +4,7 @@ import img from "../../images/error-404.PNG";
 
 const NotFound = () => {
   return (
-    <div className="w-50 mx-auto">
+    <div className="my-5 w-50 mx-auto">
       <img src={img} alt="" />
       <h3 className="text-4xl font-bold my-4 ms-3">
         "We can't find the page your are looking for.....

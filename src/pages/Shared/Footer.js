@@ -1,11 +1,10 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 import logo from "../../images/logo/hospital.png";
 
 const Footer = () => {
   return (
     <>
-      <div className="bg-dark mt-5 p-3 text-white">
+      <div className="bg-dark p-3 text-white">
         <div className="py-5 d-lg-flex justify-content-around">
           <div>
             <img
@@ -40,7 +39,7 @@ const Footer = () => {
       </div>
       <p className="mb-0 p-3 text-center text-white bg-primary">
         Copyright<i className="far fa-copyright"></i> 2025 Humanity Hospital.
-        All right reserved, Privacy Policy updated. Terms of Uses
+        All right reserved.
       </p>
     </>
   );
