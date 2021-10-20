@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import logo from "../../images/logo/hospital.png";
 
 const Header = () => {
   const { user, logOut } = useAuth();
@@ -16,7 +17,8 @@ const Header = () => {
       >
         <Container>
           <Navbar.Brand as={NavLink} to="/home">
-            <span className="text-primary">H.</span>Hospital
+            <img style={{ width: "50px" }} src={logo} alt="" />
+            <span className="ms-2">H.</span>Hospital
           </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
@@ -52,10 +54,10 @@ const Header = () => {
             ) : (
               <>
                 <Nav.Link as={NavLink} to="/login">
-                  <button className="btn btn-primary py-1">LogIn</button>
+                  <button className="btn btn-primary">LogIn</button>
                 </Nav.Link>
                 <Nav.Link as={NavLink} to="/register">
-                  <button className="btn btn-primary py-1">Register</button>
+                  <button className="btn btn-primary">Register</button>
                 </Nav.Link>
               </>
             )}

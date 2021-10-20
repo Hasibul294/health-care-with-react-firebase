@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import logo from "../../images/logo/hospital.png";
 
 const Footer = () => {
   return (
@@ -7,6 +8,11 @@ const Footer = () => {
       <div className="bg-dark mt-5 p-3 text-white">
         <div className="py-5 d-lg-flex justify-content-around">
           <div>
+            <img
+              style={{ width: "50px", marginLeft: "35px" }}
+              src={logo}
+              alt=""
+            />
             <h3>
               <span className="text-primary">H.</span>Hospital
             </h3>
