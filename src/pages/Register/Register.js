@@ -1,10 +1,11 @@
-import React from "react";
 import { Link, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
   const {
-    error,
+    errorRegister,
+    setErrorRegister,
+    setUserName,
     signInUsingGoogle,
     setIsLoading,
     handleName,
@@ -15,7 +16,20 @@ const Register = () => {
 
   const location = useLocation();
   const history = useHistory();
+  console.log(location.state?.from);
   const redirect_url = location.state?.from || "/home";
+
+  // const register = () => {
+  //   handleRegister()
+  //     .then((result) => {
+  //       setErrorRegister("");
+  //       setUserName();
+  //       history.push("/login");
+  //     })
+  //     .catch((error) => {
+  //       setErrorRegister(error.message);
+  //     });
+  // };
 
   const handleGoogleLogin = () => {
     signInUsingGoogle()
@@ -27,6 +41,7 @@ const Register = () => {
       })
       .finally(() => setIsLoading(false));
   };
+
   return (
     <div>
       <div className="w-75 mx-auto my-4">
@@ -68,7 +83,7 @@ const Register = () => {
               id="inputPassword4"
               required
             />
-            <div className="mb-3 text-danger">{error}</div>
+            <div className="mb-3 text-danger">{errorRegister}</div>
           </div>
           <div className="col-12">
             <label htmlFor="inputAddress" className="form-label">

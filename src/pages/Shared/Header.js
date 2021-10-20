@@ -37,7 +37,7 @@ const Header = () => {
                 News
               </Nav.Link>
             </Nav>
-            {user?.email && (
+            {user?.displayName && (
               <Navbar.Text>
                 Hello:{" "}
                 <span className="fw-bold text-white me-2">
@@ -45,7 +45,7 @@ const Header = () => {
                 </span>
               </Navbar.Text>
             )}
-            {user?.email ? (
+            {user?.displayName ? (
               <button onClick={logOut} className="btn btn-primary py-1">
                 LogOut
               </button>

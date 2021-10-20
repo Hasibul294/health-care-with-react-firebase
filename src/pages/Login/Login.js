@@ -3,7 +3,9 @@ import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   const {
-    error,
+    setUser,
+    errorLogin,
+    setErrorLogin,
     signInUsingGoogle,
     setIsLoading,
     handleEmail,
@@ -14,6 +16,20 @@ const Login = () => {
   const location = useLocation();
   const history = useHistory();
   const redirect_url = location.state?.from || "/home";
+
+  const login = (e) => {
+    console.log("this is login");
+    handleLogin(e)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        setErrorLogin("");
+        history.push(redirect_url);
+      })
+      .catch((error) => {
+        setErrorLogin(error.message);
+      });
+  };
 
   const handleGoogleLogin = () => {
     signInUsingGoogle()
@@ -30,7 +46,7 @@ const Login = () => {
     <div className="d-flex justify-content-center my-5">
       <div>
         <h2 className="text-center">Please Login</h2>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={login}>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
@@ -59,7 +75,7 @@ const Login = () => {
               required
             />
           </div>
-          <div className="mb-3 text-danger">{error}</div>
+          <div className="mb-3 text-danger">{errorLogin}</div>
           <button type="submit" className="btn btn-primary">
             Login
           </button>

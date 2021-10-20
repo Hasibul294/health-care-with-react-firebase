@@ -10,6 +10,7 @@ import {
   signOut,
 } from "firebase/auth";
 import initializeAuthentication from "../Firebase/firebase.init";
+import { useHistory } from "react-router";
 
 initializeAuthentication();
 
@@ -17,9 +18,12 @@ const useFirebase = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [errorLogin, setErrorLogin] = useState("");
+  const [errorRegister, setErrorRegister] = useState("");
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
+  const history = useHistory();
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
@@ -36,46 +40,46 @@ const useFirebase = () => {
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
-  console.log(name);
 
   const handleLogin = (e) => {
+    console.log("this is login");
     e.preventDefault();
     if (!/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/.test(password)) {
       console.log("this is valid");
-      setError(
+      setErrorLogin(
         "Password Must have at least one Upper, Lower case and number and 6 characters long"
       );
       return;
     }
-    signInWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        const user = result.user;
-        setUser(user);
-        setError("");
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
+    return signInWithEmailAndPassword(auth, email, password);
+    // .then((result) => {
+    //   const user = result.user;
+    //   setUser(user);
+    //   setErrorLogin("");
+    // })
+    // .catch((error) => {
+    //   setErrorLogin(error.message);
+    // });
   };
 
   const handleRegister = (e) => {
+    console.log("i am register");
     e.preventDefault();
     if (!/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/.test(password)) {
       console.log("this is valid");
-      setError(
-        "Password Must have at least one Upper, Lower case and number and 6 characters long"
+      setErrorRegister(
+        "Must have at least one Upper,Lower case and number, 6 characters long"
       );
       return;
     }
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        const user = result.user;
-        setUser(user);
-        setError("");
+        setErrorRegister("");
         setUserName();
+        // history?.push("/login");
       })
       .catch((error) => {
-        setError(error.message);
+        setErrorRegister(error.message);
       });
   };
 
@@ -84,6 +88,7 @@ const useFirebase = () => {
   };
 
   const signInUsingGoogle = () => {
+    console.log("i am google sign in");
     setIsLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
@@ -112,7 +117,11 @@ const useFirebase = () => {
 
   return {
     user,
-    error,
+    setUser,
+    errorLogin,
+    setErrorLogin,
+    errorRegister,
+    setErrorRegister,
     isLoading,
     setIsLoading,
     handleName,
