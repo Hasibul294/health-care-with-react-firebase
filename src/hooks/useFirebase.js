@@ -10,7 +10,6 @@ import {
   signOut,
 } from "firebase/auth";
 import initializeAuthentication from "../Firebase/firebase.init";
-import { useHistory } from "react-router";
 
 initializeAuthentication();
 
@@ -22,8 +21,6 @@ const useFirebase = () => {
   const [errorRegister, setErrorRegister] = useState("");
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-
-  const history = useHistory();
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
@@ -52,14 +49,6 @@ const useFirebase = () => {
       return;
     }
     return signInWithEmailAndPassword(auth, email, password);
-    // .then((result) => {
-    //   const user = result.user;
-    //   setUser(user);
-    //   setErrorLogin("");
-    // })
-    // .catch((error) => {
-    //   setErrorLogin(error.message);
-    // });
   };
 
   const handleRegister = (e) => {
@@ -72,15 +61,7 @@ const useFirebase = () => {
       );
       return;
     }
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        setErrorRegister("");
-        setUserName();
-        // history?.push("/login");
-      })
-      .catch((error) => {
-        setErrorRegister(error.message);
-      });
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const setUserName = () => {

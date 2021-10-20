@@ -19,21 +19,21 @@ const Register = () => {
   console.log(location.state?.from);
   const redirect_url = location.state?.from || "/home";
 
-  // const register = () => {
-  //   handleRegister()
-  //     .then((result) => {
-  //       setErrorRegister("");
-  //       setUserName();
-  //       history.push("/login");
-  //     })
-  //     .catch((error) => {
-  //       setErrorRegister(error.message);
-  //     });
-  // };
+  const register = (e) => {
+    handleRegister(e)
+      ?.then((result) => {
+        setErrorRegister("");
+        setUserName();
+        history.push("/login");
+      })
+      .catch((error) => {
+        setErrorRegister(error.message);
+      });
+  };
 
   const handleGoogleLogin = () => {
     signInUsingGoogle()
-      .then((result) => {
+      ?.then((result) => {
         history.push(redirect_url);
       })
       .catch((error) => {
@@ -46,7 +46,7 @@ const Register = () => {
     <div>
       <div className="w-75 mx-auto my-4">
         <h2 className="text-center mb-3">Please Register</h2>
-        <form onSubmit={handleRegister} className="row g-3">
+        <form onSubmit={register} className="row g-3">
           <div className="col-12">
             <label htmlFor="inputAddress2" className="form-label">
               Name

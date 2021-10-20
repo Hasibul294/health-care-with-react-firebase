@@ -18,9 +18,8 @@ const Login = () => {
   const redirect_url = location.state?.from || "/home";
 
   const login = (e) => {
-    console.log("this is login");
     handleLogin(e)
-      .then((result) => {
+      ?.then((result) => {
         const user = result.user;
         setUser(user);
         setErrorLogin("");
@@ -33,7 +32,7 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     signInUsingGoogle()
-      .then((result) => {
+      ?.then((result) => {
         history.push(redirect_url);
       })
       .catch((error) => {

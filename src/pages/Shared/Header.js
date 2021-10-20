@@ -39,7 +39,7 @@ const Header = () => {
             </Nav>
             {user?.displayName && (
               <Navbar.Text>
-                Hello:{" "}
+                Hi,{" "}
                 <span className="fw-bold text-white me-2">
                   {user?.displayName}
                 </span>
